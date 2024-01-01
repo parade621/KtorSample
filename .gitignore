@@ -13,3 +13,7 @@
 .externalNativeBuild
 .cxx
 local.properties
+
+/.idea/**/sonarlint/
+/.idea/**/sonar-project.properties
+```
