@@ -14,3 +14,5 @@ dependencyResolutionManagement {
 }
 rootProject.name = "KtorSample"
 include ':app'
+include ':domain'
+include ':data'
