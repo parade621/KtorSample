@@ -1,4 +1,4 @@
-package com.example.ktorsample.server
+package com.example.data.server
 
 
 //suspend fun requestServerLogin(

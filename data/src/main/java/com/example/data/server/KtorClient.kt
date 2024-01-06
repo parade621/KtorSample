@@ -1,14 +1,10 @@
-package com.example.ktorsample.server
+package com.example.data.server
 
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.okhttp.OkHttp
 import io.ktor.client.plugins.HttpRequestRetry
 import io.ktor.client.plugins.HttpTimeout
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
-import io.ktor.client.plugins.logging.DEFAULT
-import io.ktor.client.plugins.logging.LogLevel
-import io.ktor.client.plugins.logging.Logger
-import io.ktor.client.plugins.logging.Logging
 import io.ktor.http.isSuccess
 import io.ktor.serialization.gson.gson
 import okhttp3.OkHttpClient
@@ -28,10 +24,6 @@ fun createHttpClient(): HttpClient {
         }
         install(ContentNegotiation) {
             gson()
-        }
-        install(Logging) {
-            logger = Logger.DEFAULT
-            level = LogLevel.ALL
         }
         // Timeout 설정
         install(HttpTimeout) {
