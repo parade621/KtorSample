@@ -1,6 +1,5 @@
 package com.example.ktorsample.server
 
-import com.android.volley.NetworkError
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.okhttp.OkHttp
 import io.ktor.client.plugins.HttpRequestRetry
@@ -47,7 +46,7 @@ fun createHttpClient(): HttpClient {
                 !response.status.isSuccess()
             }
             retryOnExceptionIf { request, cause ->
-                cause is NetworkError
+                true
             }
             delayMillis { retry ->
                 500L
