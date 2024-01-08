@@ -10,7 +10,7 @@ Ktor는 호출에 실패한 API 통신 코드를 자동으로 재시도 해주�
 때문에 자동으로 재시도 하는 로직을 추가하면 사용자들에게 좀더 편의를 제공할 수 있지 않을까 싶어서 미리 적용해 보려한다.
 
 ***
-# 연습 해볼 기술들
+# Sample 코드 작성 목표
 
 - Ktor
 - NewsAPI
@@ -21,3 +21,5 @@ Ktor는 호출에 실패한 API 통신 코드를 자동으로 재시도 해주�
 - CardView
 - 뉴스 페이지 웹뷰로 표시하고 하드웨어 가속도 해보기
 - serialization과 Parcelable 둘다 적용해보고, 진짜 빠른건 무엇인지 비교해보기
+- 버전 카탈로그(libs.version.toml) 사용해보기
+- secrets.defaults.properties 사용해보기

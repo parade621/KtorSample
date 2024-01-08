@@ -64,5 +64,6 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:${kotlinx_coroutines}")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:${kotlinx_coroutines}")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-play-services:${kotlinx_coroutines}")
+
 }
 

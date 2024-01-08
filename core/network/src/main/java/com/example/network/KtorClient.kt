@@ -1,12 +1,18 @@
-package com.example.data.server
+package com.example.ktorsample
 
+import android.net.http.HttpResponseCache.install
 import io.ktor.client.HttpClient
+import io.ktor.client.call.body
 import io.ktor.client.engine.okhttp.OkHttp
 import io.ktor.client.plugins.HttpRequestRetry
 import io.ktor.client.plugins.HttpTimeout
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
+import io.ktor.client.request.headers
+import io.ktor.client.request.request
+import io.ktor.http.HttpMethod
 import io.ktor.http.isSuccess
 import io.ktor.serialization.gson.gson
+import io.ktor.util.StringValues
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 
@@ -47,26 +53,23 @@ fun createHttpClient(): HttpClient {
     }
 }
 
-//private val BASE_URL by lazy {
-//    setServerUrl()
-//}
+private const val BASE_URL = "https://newsapi.org"
 
-
-
-//suspend fun HttpClient.dynamicRequest(
-//    serverUrl: String = BASE_URL,
-//    methodName: String? = null,
-//    params: StringValues = StringValues.Empty,
-//): APIModel {
-//    val serverURL = "$serverUrl/$methodName"
-//    val response: APIModel = request(serverURL) {
-//        this.method = HttpMethod.Post
-//        headers {
-//            append("User-Agent", DataStoreManager.userAgent)
-//        }
-//        url.parameters.appendAll(params)
-//    }.body()
-//    return response
-//}
+// 다양한 형태로 응용 가능한 Requester 모듈
+suspend fun HttpClient.requester(
+    serverUrl: String = com.example.ktorsample.BASE_URL,
+    methodName: String? = null,
+    params: StringValues = StringValues.Empty,
+): Article {
+    val serverURL = "$serverUrl/$methodName"
+    val response: Article = request(serverURL) {
+        this.method = HttpMethod.Post
+        headers {
+            append("X-Api-Key", "")
+        }
+        url.parameters.appendAll(params)
+    }.body()
+    return response
+}
 
 
