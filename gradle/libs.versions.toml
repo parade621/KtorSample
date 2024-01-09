@@ -4,6 +4,9 @@ androidxActivity = "1.8.2"
 androidxCore = "1.12.0"
 androidxWork = "2.9.0"
 
+# Timber
+timber = "5.0.1"
+
 # coil
 coil = "2.4.0"
 
@@ -20,6 +23,7 @@ androidxComposePaging = "3.2.1"
 androidGradlePlugin = "8.2.1"
 
 # hilt
+constraintlayout = "2.1.4"
 hilt = "2.48.1"
 hiltExt = "1.1.0"
 androidxHiltNavigationCompose = "1.1.0"
@@ -36,12 +40,16 @@ ksp = "1.9.21-1.0.16"
 androidxLifecycle = "2.6.2"
 
 # ktor
-ktor = "2.3.3"
+ktor = "2.3.1"
+
+# okhttp
+okhttp = "4.11.0"
 
 # lottie
 lottieCompose = "5.2.0"
 
 # secretGradlePlugin
+materialVersion = "1.5.0"
 secretGradlePlugin = "2.0.1"
 
 # test
@@ -53,7 +61,7 @@ appcompat = "1.6.1"
 material = "1.11.0"
 
 [plugins]
-android-application = { id = "com.android.application", version.ref = "androidGradlePlugin"}
+android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
 android-library = { id = "com.android.library", version.ref = "androidGradlePlugin" }
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
@@ -67,9 +75,13 @@ secrets = { id = "com.google.android.libraries.mapsplatform.secrets-gradle-plugi
 [libraries]
 # androidx
 androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "androidxActivity" }
+androidx-constraintlayout = { module = "androidx.constraintlayout:constraintlayout", version.ref = "constraintlayout" }
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "androidxCore" }
 androidx-work-runtime-ktx = { group = "androidx.work", name = "work-runtime-ktx", version.ref = "androidxWork" }
 androidx-runtime-paging = { group = "androidx.paging", name = "paging-runtime", version.ref = "androidxComposeRuntimePaging" }
+
+# Timber
+timber = { group = "com.jakewharton.timber", name = "timber", version.ref = "timber" }
 
 # coil
 coil-kt = { group = "io.coil-kt", name = "coil", version.ref = "coil" }
@@ -82,7 +94,7 @@ androidx-compose-animation = { group = "androidx.compose.animation", name = "ani
 androidx-compose-foundation = { group = "androidx.compose.foundation", name = "foundation" }
 androidx-compose-foundation-layout = { group = "androidx.compose.foundation", name = "foundation-layout" }
 androidx-compose-material-iconsExtended = { group = "androidx.compose.material", name = "material-icons-extended" }
-androidx-compose-material3 = { group = "androidx.compose.material3", name = "material3", version.ref = "androidxComposeMaterial"}
+androidx-compose-material3 = { group = "androidx.compose.material3", name = "material3", version.ref = "androidxComposeMaterial" }
 androidx-compose-material3-windowSizeClass = { group = "androidx.compose.material3", name = "material3-window-size-class" }
 androidx-compose-runtime = { group = "androidx.compose.runtime", name = "runtime" }
 androidx-compose-runtime-livedata = { group = "androidx.compose.runtime", name = "runtime-livedata" }
@@ -118,10 +130,12 @@ ktor-client-cio = { group = "io.ktor", name = "ktor-client-cio", version.ref = "
 ktor-client-android = { group = "io.ktor", name = "ktor-client-android", version.ref = "ktor" }
 ktor-client-content-negotiation = { group = "io.ktor", name = "ktor-client-content-negotiation", version.ref = "ktor" }
 ktor-client-serialization = { group = "io.ktor", name = "ktor-client-serialization", version.ref = "ktor" }
+ktor-client-okhttp = { group = "io.ktor", name = "ktor-client-okhttp", version.ref = "ktor" }
+ktor-serialization-kotlinx-json = { group = "io.ktor", name = "ktor-serialization-kotlinx-json", version.ref = "ktor" }
 
-# ktor serialization
-ktor-serialization-serialization = { group = "io.ktor", name = "ktor-serialization-serialization", version.ref = "ktor" }
-ktor-serialization-json = { group = "io.ktor", name = "ktor-serialization-json", version.ref = "ktor" }
+# okhttp
+okhttp = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhttp" }
+okhttp-logging-interceptor = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttp" }
 
 # lottie
 lottie-compose = { group = "com.airbnb.android", name = "lottie-compose", version.ref = "lottieCompose" }
@@ -135,6 +149,7 @@ kotlin-test-junit = { group = "org.jetbrains.kotlin", name = "kotlin-test-junit"
 junit = { group = "androidx.test.ext", name = "junit", version.ref = "junit" }
 appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+material-v150 = { module = "com.google.android.material:material", version.ref = "materialVersion" }
 
 # Dependencies of the included build-logic
 #android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "androidGradlePlugin" }
@@ -142,6 +157,12 @@ material = { group = "com.google.android.material", name = "material", version.r
 #ksp-gradlePlugin = { group = "com.google.devtools.ksp", name = "com.google.devtools.ksp.gradle.plugin", version.ref = "ksp" }
 
 [bundles]
+
+kotlinx = [
+    "kotlinx-coroutines-android",
+    "kotlinx-serialization-json",
+]
+
 androidx-compose = [
     "androidx-compose-animation",
     "androidx-compose-foundation",
@@ -176,15 +197,17 @@ coil = [
     "coil-kt-svg",
 ]
 
+okhttp = [
+    "okhttp",
+    "okhttp-logging-interceptor",
+]
+
 ktor = [
     "ktor-client-core",
     "ktor-client-cio",
     "ktor-client-android",
     "ktor-client-content-negotiation",
     "ktor-client-serialization",
-]
-
-ktor-serialization = [
-    "ktor-serialization-serialization",
-    "ktor-serialization-json",
+    "ktor-client-okhttp",
+    "ktor-serialization-kotlinx-json",
 ]

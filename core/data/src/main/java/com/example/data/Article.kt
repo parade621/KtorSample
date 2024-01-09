@@ -1,4 +1,4 @@
-package com.example.ktorsample
+package com.example.data
 
 data class Article(
     val source: Source = Source(),

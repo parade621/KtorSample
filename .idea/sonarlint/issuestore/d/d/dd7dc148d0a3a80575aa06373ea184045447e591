@@ -1,5 +1,0 @@
-
-^kotlin:S1172C":Use "_" instead of this unused lambda parameter "request".(òí‘Ôúÿÿÿÿ8ÅÚ–ÁÇ1
-\kotlin:S1172W"8Use "_" instead of this unused lambda parameter "retry".(”ªã²ùÿÿÿÿ8ÅÚ–ÁÇ1
-;kotlin:S6310"Avoid hardcoded dispatchers.(Ô¥‚ü8Ü¤”ÁÇ1
-vkotlin:S3776"RRefactor this method to reduce its Cognitive Complexity from 25 to the 15 allowed.(Áóáÿûÿÿÿÿ8à¤”ÁÇ1

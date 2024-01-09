@@ -42,6 +42,13 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)
+
+    implementation(libs.kotlinx.coroutines.android)
+    implementation(libs.bundles.ktor)
+    implementation(libs.bundles.okhttp)
+
+    implementation(libs.hilt.android)
+
     testImplementation(libs.junit4)
     androidTestImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.espresso.core)

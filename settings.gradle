@@ -12,10 +12,12 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
+
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
+
 rootProject.name = "KtorSample"
 include ':app'
 include ':domain'
 include ':core'
-include ':core:data'
 include ':core:data'
 include ':core:network'

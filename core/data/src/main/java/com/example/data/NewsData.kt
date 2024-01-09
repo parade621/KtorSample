@@ -1,4 +1,4 @@
-package com.example.ktorsample
+package com.example.data
 
 data class NewsData(
     val status: String = "",

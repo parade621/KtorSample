@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.plugin.ide.kotlinExtrasSerialization
+
 @Suppress("DSL_SCOPE_VIOLATION") // TODO: Remove once KTIJ-19369 is fixed
 plugins {
     alias(libs.plugins.android.library)
@@ -41,4 +43,11 @@ dependencies {
     testImplementation(libs.junit4)
     androidTestImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.espresso.core)
+
+    implementation(projects.core.network)
+    implementation(libs.bundles.ktor)
+
+    implementation(libs.kotlinx.coroutines.android)
+
+    implementation(libs.hilt.android)
 }
