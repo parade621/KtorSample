@@ -1,6 +1,13 @@
 package com.example.data.api
 
 import com.example.data.Article
+import com.example.data.BuildConfig.API_KEY
+import io.ktor.client.HttpClient
+import io.ktor.client.call.body
+import io.ktor.client.request.request
+import io.ktor.http.HttpMethod
+import io.ktor.http.headers
+import io.ktor.util.StringValues
 
 private const val BASE_URL = "https://newsapi.org"
 
@@ -14,7 +21,7 @@ suspend fun HttpClient.requester(
     val response: Article = request(serverURL) {
         this.method = HttpMethod.Post
         headers {
-            append("X-Api-Key", "")
+            append("X-Api-Key", API_KEY)
         }
         url.parameters.appendAll(params)
     }.body()

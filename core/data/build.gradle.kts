@@ -4,6 +4,11 @@ import org.jetbrains.kotlin.gradle.plugin.ide.kotlinExtrasSerialization
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.secrets)
+//    alias(libs.plugins.hilt)
+    //alias(libs.plugins.ksp)
+//    alias(libs.plugins.secrets)
+//    alias(libs.plugins.kotlin.serialization)
 }
 
 android {
@@ -33,6 +38,10 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
+    buildFeatures {
+        buildConfig = true
+    }
 }
 
 dependencies {
@@ -50,4 +59,8 @@ dependencies {
     implementation(libs.kotlinx.coroutines.android)
 
     implementation(libs.hilt.android)
+}
+
+secrets {
+    defaultPropertiesFileName = "secrets.defaults.properties"
 }

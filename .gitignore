@@ -17,4 +17,6 @@ local.properties
 /.idea
 /.idea/**/sonarlint/
 /.idea/**/sonar-project.properties
+
+/secrets.defaults.properties
 ```

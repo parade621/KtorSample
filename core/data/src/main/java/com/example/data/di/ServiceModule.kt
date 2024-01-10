@@ -15,5 +15,5 @@ object ServiceModule {
     @Singleton
     fun provideKakaoSearchService(
         @Named(NetworkType.NewsClient) ktorClient: HttpClient
-    ) = retrofit.create<KakaoSearchService>()
+    ) = ktorClient
 }
