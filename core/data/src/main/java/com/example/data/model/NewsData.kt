@@ -1,4 +1,6 @@
-package com.example.data
+package com.example.data.model
+
+import com.example.data.model.Article
 
 data class NewsData(
     val status: String = "",

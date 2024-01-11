@@ -1,6 +1,6 @@
 package com.example.data.api
 
-import com.example.data.Article
+import com.example.data.model.Article
 import com.example.data.BuildConfig.API_KEY
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body

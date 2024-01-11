@@ -11,6 +11,7 @@ import io.ktor.client.plugins.HttpTimeout
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.http.isSuccess
 import io.ktor.serialization.kotlinx.json.json
+import kotlinx.serialization.json.Json
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import javax.inject.Named
@@ -36,7 +37,11 @@ object NetworkModule {
                 preconfigured = okHttpClient
             }
             install(ContentNegotiation) {
-                json()
+                json(
+                    Json {
+                        ignoreUnknownKeys = true
+                    }
+                )
             }
             // Timeout 설정
             install(HttpTimeout) {
@@ -46,7 +51,7 @@ object NetworkModule {
             }
             // 자동 재시도
             install(HttpRequestRetry) {
-                maxRetries = 1
+                maxRetries = 2
                 retryIf { _, response ->
                     !response.status.isSuccess()
                 }
