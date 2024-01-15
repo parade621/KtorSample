@@ -5,19 +5,19 @@ import kotlinx.coroutines.flow.Flow
 
 interface NewsSearchRopo {
 
-    fun getNewsDataResponse(
-        q: String,
-        searchIn: String,
-        sources: String,
-        domains: String,
-        excludeDomains: String,
-        from: String,
-        to: String,
-        language: String,
-        sortBy: String,
-        pageSize: Int,
-        page: Int
-    ): Flow<ApiResult</* 데이터 타입 입력 */>>
+//    fun getNewsDataResponse(
+//        q: String,
+//        searchIn: String,
+//        sources: String,
+//        domains: String,
+//        excludeDomains: String,
+//        from: String,
+//        to: String,
+//        language: String,
+//        sortBy: String,
+//        pageSize: Int,
+//        page: Int
+//    ): Flow<ApiResult</* 데이터 타입 입력 */>
 
 }
 
