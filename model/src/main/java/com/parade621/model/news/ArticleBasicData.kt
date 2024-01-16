@@ -12,5 +12,10 @@ data class ArticleBasicData(
 )
 
 enum class ArticleCategory {
-
+    BUSINESS,
+    ENTERTAINMENT,
+    HEALTH,
+    SCIENCE,
+    SPORTS,
+    TECHNOLOGY
 }

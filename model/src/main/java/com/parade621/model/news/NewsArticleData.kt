@@ -1,6 +1,6 @@
 package com.parade621.model.news
 
 data class NewsArticleData (
-    val isBookmark: Boolean,
+    val isBookmarked: Boolean,
     val article: ArticleBasicData
 )
