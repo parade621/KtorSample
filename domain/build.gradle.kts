@@ -41,7 +41,7 @@ dependencies {
     androidTestImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.espresso.core)
 
-    implementation(projects.model)
+    implementation(projects.core.data)
 
     implementation(libs.kotlinx.coroutines.android)
 }
