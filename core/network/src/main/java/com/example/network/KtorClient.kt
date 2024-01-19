@@ -64,6 +64,7 @@ object NetworkModule {
             }
         }
     }
+
 }
 
 object NetworkType {
