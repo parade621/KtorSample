@@ -6,7 +6,6 @@ import com.example.data.model.NewsData
 import com.example.data.source.remote.NewsSearchDataSource
 import com.example.domain.model.ApiResult
 import com.example.domain.repository.NewsSearchRopo
-import com.example.network.NetworkType
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
 import io.ktor.client.request.headers
@@ -15,7 +14,6 @@ import io.ktor.http.HttpMethod
 import io.ktor.util.StringValues
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.flow.internal.NopCollector.emit
 import javax.inject.Inject
 
 class NewsSearchRepoImpl @Inject constructor(
@@ -69,8 +67,11 @@ class NewsSearchRepoImpl @Inject constructor(
             httpClient.requester(
                 methodName = "LoginQXQuick",
                 params = params
-            )
-            emit(ApiResult.Success(response))
+            ).also {
+                it.articles.forEach { article ->
+                    emit(ApiResult.Success(article))
+                }
+            }
         }
     }
 }
