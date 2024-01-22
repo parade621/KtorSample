@@ -38,6 +38,7 @@ android {
 
     buildFeatures {
         buildConfig = true
+        compose = true
     }
 }
 
@@ -45,6 +46,7 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.work.runtime.ktx)
     implementation(libs.androidx.activity.compose)
+    implementation(libs.bundles.androidx.compose)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
