@@ -8,7 +8,7 @@ androidxWork = "2.9.0"
 timber = "5.0.1"
 
 # coil
-coil = "2.4.0"
+coil = "2.5.0"
 
 # compose
 androidxComposeBom = "2023.10.01"

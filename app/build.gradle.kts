@@ -50,7 +50,9 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.work.runtime.ktx)
     implementation(libs.androidx.activity.compose)
+
     implementation(libs.bundles.androidx.compose)
+    implementation(libs.bundles.coil)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
