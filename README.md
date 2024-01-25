@@ -23,4 +23,5 @@ Ktor는 호출에 실패한 API 통신 코드를 자동으로 재시도 해주�
 - serialization과 Parcelable 둘다 적용해보고, 진짜 빠른건 무엇인지 비교해보기
 - 버전 카탈로그(libs.version.toml) 사용해보기
 - Secret Gradle Plugin (secretes.defaults.properties) 사용해보기
-- Flow 적용?
+- Flow 적용? <- 고민중
+- Image 라이브러리로 Coil 사용해보기
