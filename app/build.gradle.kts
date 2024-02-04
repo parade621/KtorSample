@@ -53,6 +53,7 @@ dependencies {
 
     implementation(libs.bundles.androidx.compose)
     implementation(libs.bundles.coil)
+    implementation(libs.hilt.android)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
