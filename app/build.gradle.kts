@@ -60,5 +60,6 @@ dependencies {
     implementation(libs.material)
 
     implementation(libs.timber)
+    debugImplementation(libs.androidx.ui.tooling)
 }
 

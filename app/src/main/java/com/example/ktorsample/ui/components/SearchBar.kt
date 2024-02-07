@@ -7,10 +7,13 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Close
+import androidx.compose.material.icons.filled.Mic
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
@@ -56,15 +59,15 @@ fun SearchBar(
         onValueChange = { newValue ->
             getNewString(newValue)
         },
-        colors = TextFieldDefaults.outlinedTextFieldColors(
+        colors = OutlinedTextFieldDefaults.colors(
+            focusedBorderColor = Color.Transparent,
             unfocusedBorderColor = Color.Transparent,
-            focusedBorderColor = Color.Transparent
         ),
         modifier = modifier
             .fillMaxWidth()
             .background(
                 color = Color.White,
-                shape = RoundedCornerShape(10.dp),
+                shape = RoundedCornerShape(15.dp),
             )
             .focusRequester(focusRequester = focusRequester),
         textStyle = TextStyle(
@@ -83,6 +86,17 @@ fun SearchBar(
                         onEvent(text)
                     }
             )
+        },
+        trailingIcon = {
+            Icon(
+                imageVector = Icons.Default.Mic,
+                contentDescription = "Mic Icon",
+                modifier = Modifier
+                    .clickable {
+                        // 음성 검색 기능 추가
+                    }
+            )
+
         },
         placeholder = {
             Text(

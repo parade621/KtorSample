@@ -5,6 +5,6 @@ sealed class Screens(val route: String) {
         operator fun invoke(): String = route
     }
 
-    object MainScreen : NoArgumentsScreen("Main")
+    object HomeScreen : NoArgumentsScreen("Home")
 
 }
