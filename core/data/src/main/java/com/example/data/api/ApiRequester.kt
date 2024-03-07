@@ -1,7 +1,7 @@
 package com.example.data.api
 
-import com.example.data.model.Article
 import com.example.data.BuildConfig.API_KEY
+import com.example.data.model.Article
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
 import io.ktor.client.request.request

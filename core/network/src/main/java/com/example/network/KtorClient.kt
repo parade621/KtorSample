@@ -18,57 +18,45 @@ import javax.inject.Named
 import javax.inject.Singleton
 
 
-@InstallIn(SingletonComponent::class)
-@Module
-object NetworkModule {
-    @Singleton
-    @Provides
-    @Named(NetworkType.NewsClient)
-    fun provideHttpClient(): HttpClient {
-        val loggingInterceptor = HttpLoggingInterceptor().apply {
-            level = HttpLoggingInterceptor.Level.BODY
-        }
-        val okHttpClient = OkHttpClient.Builder()
-            .addInterceptor(loggingInterceptor)
-            .build()
+fun provideHttpClient(): HttpClient {
+    val loggingInterceptor = HttpLoggingInterceptor().apply {
+        level = HttpLoggingInterceptor.Level.BODY
+    }
+    val okHttpClient = OkHttpClient.Builder()
+        .addInterceptor(loggingInterceptor)
+        .build()
 
-        return HttpClient(OkHttp) {
-            engine {
-                preconfigured = okHttpClient
-            }
-            install(ContentNegotiation) {
-                json(
-                    Json {
-                        ignoreUnknownKeys = true
-                    }
-                )
-            }
-            // Timeout 설정
-            install(HttpTimeout) {
-                requestTimeoutMillis = 10_000 // 10초.
-                connectTimeoutMillis = 10_000
-                socketTimeoutMillis = 10_000
-            }
-            // 자동 재시도
-            install(HttpRequestRetry) {
-                maxRetries = 2
-                retryIf { _, response ->
-                    !response.status.isSuccess()
+    return HttpClient(OkHttp) {
+        engine {
+            preconfigured = okHttpClient
+        }
+        install(ContentNegotiation) {
+            json(
+                Json {
+                    ignoreUnknownKeys = true
                 }
-                retryOnExceptionIf { _, cause ->
-                    true
-                }
-                delayMillis { _ ->
-                    500L
-                }
+            )
+        }
+        // Timeout 설정
+        install(HttpTimeout) {
+            requestTimeoutMillis = 10_000 // 10초.
+            connectTimeoutMillis = 10_000
+            socketTimeoutMillis = 10_000
+        }
+        // 자동 재시도
+        install(HttpRequestRetry) {
+            maxRetries = 2
+            retryIf { _, response ->
+                !response.status.isSuccess()
+            }
+            retryOnExceptionIf { _, cause ->
+                true
+            }
+            delayMillis { _ ->
+                500L
             }
         }
     }
-
-}
-
-object NetworkType {
-    const val NewsClient = "News"
 }
 
 

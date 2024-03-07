@@ -49,13 +49,13 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)
-    implementation(project(":domain"))
+
     testImplementation(libs.junit4)
     androidTestImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.espresso.core)
 
-    implementation(projects.core.network)
-    implementation(projects.domain)
+    implementation(project(":core:network"))
+
     implementation(libs.bundles.ktor)
 
     implementation(libs.kotlinx.coroutines.android)

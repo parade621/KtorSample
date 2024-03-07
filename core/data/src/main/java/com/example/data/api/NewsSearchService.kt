@@ -1,13 +1,12 @@
 package com.example.data.api
 
 import com.example.data.model.Article
+import com.example.network.provideHttpClient
 import io.ktor.client.HttpClient
 import io.ktor.util.StringValues
 import javax.inject.Inject
 
-abstract class NewsSearchService @Inject constructor(
-    private val client: HttpClient
-){
+abstract class NewsSearchService {
     suspend fun getNewsDataResponse(
         q: String,
         searchIn: String,
@@ -21,6 +20,8 @@ abstract class NewsSearchService @Inject constructor(
         pageSize: Int,
         page: Int
     ): Article {
+
+        val client = provideHttpClient()
         val params = StringValues.Companion.build {
             append("q", q)
             append("searchIn", searchIn)
